@@ -1,9 +1,10 @@
 version: '3.8'
 
+name: nextjs-llm-study
 services:
   mysql:
     image: mysql:8.0
-    container_name: nextjs-llm-study-db
+    container_name: mysql
     ports:
       - "3306:3306"
     environment:
@@ -13,7 +14,7 @@ services:
       MYSQL_PASSWORD: app_pass
     volumes:
       - db_data:/var/lib/mysql
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./init/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
 
   adminer:
     image: adminer
