@@ -1,5 +1,5 @@
 // src/features/llm/usecase.ts
-import { insertJob } from "./repository"
+import { insertJob, findJobById } from "./repository"
 
 export async function createJobUseCase(prompt: string) {
   const job_id = generateJobId()
@@ -8,6 +8,18 @@ export async function createJobUseCase(prompt: string) {
   await insertJob({ job_id, prompt, status })
 
   return { job_id }
+}
+
+export async function getJobUseCase(job_id: string) {
+  const job = await findJobById(job_id)
+
+  if (!job) return null
+
+  return {
+    job_id: job.job_id,
+    prompt: job.prompt,
+    status: job.status,
+  }
 }
 
 function generateJobId(): string {

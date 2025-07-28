@@ -1,5 +1,5 @@
 // src/features/llm/controller.ts
-import { createJobUseCase } from "./usecase"
+import { createJobUseCase, getJobUseCase } from "./usecase"
 
 type CreateJobRequest = {
   prompt: string
@@ -13,5 +13,14 @@ export async function createJobController(body: CreateJobRequest) {
   }
 
   const result = await createJobUseCase(prompt)
+  return result
+}
+
+export async function getJobController(job_id: string) {
+  if (!job_id || typeof job_id !== "string") {
+    throw new Error("Invalid job_id")
+  }
+
+  const result = await getJobUseCase(job_id)
   return result
 }
