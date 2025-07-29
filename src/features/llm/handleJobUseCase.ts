@@ -1,7 +1,7 @@
 // src/features/llm/handleJobUseCase.ts
 
 import { updateJobResult } from "./repository"
-import { sendToGemini } from "./sendToGemini"
+import { sendToGemini } from "../to-gemini/sendToGemini"
 
 export async function handleJobUseCase(job_id: string, prompt: string) {
   try {

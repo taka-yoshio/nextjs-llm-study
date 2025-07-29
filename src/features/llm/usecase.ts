@@ -1,6 +1,6 @@
 // src/features/llm/usecase.ts
 import { insertJob, findJobById } from "./repository"
-import { processPrompt } from "./worker"
+import { processPrompt } from "../to-gemini/worker"
 
 export async function createJobUseCase(prompt: string) {
   const job_id = generateJobId()
@@ -10,8 +10,6 @@ export async function createJobUseCase(prompt: string) {
 
   // 背景処理を発火（awaitしない）
   processPrompt(job_id, prompt).catch(console.error)
-
-  return { job_id }
 
   return { job_id }
 }
