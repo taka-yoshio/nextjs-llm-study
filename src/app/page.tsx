@@ -26,7 +26,7 @@ export default function Home() {
                 プロンプトを入力
               </h2>
               <p className="text-gray-600">
-                Geminiに送信したいプロンプトを下記に入力してください
+                Geminiに送信したいプロンプトを下記に入力してください。
               </p>
             </div>
             <PromptInput onJobId={(id) => setJobId(id)} />
