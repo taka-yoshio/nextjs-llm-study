@@ -33,6 +33,7 @@ export async function findJobById(job_id: string): Promise<JobRow | null> {
   return rows.length > 0 ? rows[0] : null
 }
 
+// データ更新
 export async function updateJobResult(job_id: string, result_text: string) {
   const conn = await getConnection()
   await conn.execute(

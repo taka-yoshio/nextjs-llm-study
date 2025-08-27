@@ -1,5 +1,5 @@
 // src/features/llm/worker.ts
-import { updateJobResult } from "./repository"
+import { updateJobResult } from "../llm/repository"
 import { sendToGemini } from "./sendToGemini"
 
 export async function processPrompt(job_id: string, prompt: string) {
